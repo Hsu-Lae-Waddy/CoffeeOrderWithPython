@@ -20,16 +20,40 @@ class Coffee:
 
     
 
-order1=Coffee("Latte","medium")
-order2=Coffee("Espresso","small")
+total =0
+orders=[]
 
-order1.descript()
-order2.descript()
+while True:
+    print("/n ... Coffee menu ...")
+    print("1. Latte")
+    print("2. Espresso")
+    print("3. Cappuccino")
+    
+    choice=input("Choose cofee(1/2/3) or q to quit: ")
 
-order3= Coffee("Cappuccino", "small")
-order3.changeSize("large")
-order3.descript()
+    if choice == "q":
+        break
+    elif choice == "1":
+        Coffee_name="Latte"
+    elif choice == "2":
+        Coffee_name="Espresso"
+    elif choice =="3":
+        Coffee_name="Cappuccino"
+    else:
+        print("Invalid choice")
+        continue
 
+    size = input("Choose size (small,medium,large): ")
+    
+    order=Coffee(Coffee_name,size)
+    orders.append(order)
+    total=total+order.price
+    print("order added!")
 
+    print("/n --- Your Orders --- ")
+    for i in orders:
+        i.descript()
 
+    print(f"Total Price: {total}")
+    print("Thank you")
         
